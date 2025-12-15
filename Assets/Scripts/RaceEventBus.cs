@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// 전역에서 접근할 수 있는 이벤트 버스를 설정하고자 static 키워드를 사용하는 클래스 
+/// 전역에서 접근할 수 있는 이벤트 버스를 설정하고자 static 키워드를 사용하는 클래스
 /// </summary>
 public class RaceEventBus : MonoBehaviour
 {
