@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36eca2908334ae7a85621e2e31348ca, type: 3}
+  m_Name: WeaponPowerUp
+  m_EditorClassIdentifier: Assembly-CSharp::VisitorPattern.PowerUp
+  powerupname: WeaponPowerUp
+  powerupPrefab: {fileID: 0}
+  powerupDescription: 
+  healShield: 0
+  turboBoost: 0
+  weaponRange: 5
+  weaponStrength: 25
