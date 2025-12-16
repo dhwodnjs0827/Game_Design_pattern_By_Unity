@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Observer
+namespace ObserverPattern
 {
     public class BikeController : Subject
     {

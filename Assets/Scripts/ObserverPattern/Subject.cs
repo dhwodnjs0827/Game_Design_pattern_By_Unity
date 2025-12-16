@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Observer
+namespace ObserverPattern
 {
     public abstract class Subject : MonoBehaviour
     {

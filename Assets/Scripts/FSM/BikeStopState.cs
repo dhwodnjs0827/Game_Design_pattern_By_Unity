@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class BikeStopState : MonoBehaviour, IBikeState
+namespace FSM
 {
-    private BikeController bikeController;
-
-    public void Handle(BikeController controller)
+    public class BikeStopState : MonoBehaviour, IBikeState
     {
-        if (!bikeController)
-        {
-            bikeController = controller;
-        }
+        private BikeController bikeController;
 
-        bikeController.CurrentSpeed = 0;
+        public void Handle(BikeController controller)
+        {
+            if (!bikeController)
+            {
+                bikeController = controller;
+            }
+
+            bikeController.CurrentSpeed = 0;
+        }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Observer
+namespace ObserverPattern
 {
     public class HUDController : Observer
     {

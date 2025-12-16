@@ -1,26 +1,30 @@
 using UnityEngine;
 
-public class BikeStartState : MonoBehaviour, IBikeState
+namespace FSM
 {
-    private BikeController bikeController;
-
-    public void Handle(BikeController controller)
+    public class BikeStartState : MonoBehaviour, IBikeState
     {
-        if (!bikeController)
+        private BikeController bikeController;
+
+        public void Handle(BikeController controller)
         {
-            bikeController = controller;
+            if (!bikeController)
+            {
+                bikeController = controller;
+            }
+
+            bikeController.CurrentSpeed = bikeController.maxSpeed;
         }
 
-        bikeController.CurrentSpeed = bikeController.maxSpeed;
-    }
-
-    private void Update()
-    {
-        if (bikeController)
+        private void Update()
         {
-            if (bikeController.CurrentSpeed > 0)
+            if (bikeController)
             {
-                bikeController.transform.Translate(Vector3.forward * (bikeController.CurrentSpeed * Time.deltaTime));
+                if (bikeController.CurrentSpeed > 0)
+                {
+                    bikeController.transform.Translate(Vector3.forward *
+                                                       (bikeController.CurrentSpeed * Time.deltaTime));
+                }
             }
         }
     }

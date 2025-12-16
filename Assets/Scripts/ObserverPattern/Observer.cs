@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Observer
+namespace ObserverPattern
 {
     public abstract class Observer : MonoBehaviour
     {

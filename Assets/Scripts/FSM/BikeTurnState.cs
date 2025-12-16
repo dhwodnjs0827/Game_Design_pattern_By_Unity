@@ -1,22 +1,25 @@
 using UnityEngine;
 
-public class BikeTurnState : MonoBehaviour, IBikeState
+namespace FSM
 {
-    private Vector3 turnDirection;
-    private BikeController bikeController;
-    
-    public void Handle(BikeController controller)
+    public class BikeTurnState : MonoBehaviour, IBikeState
     {
-        if (!bikeController)
-        {
-            bikeController = controller;
-        }
+        private Vector3 turnDirection;
+        private BikeController bikeController;
 
-        turnDirection.x = (float)bikeController.CurrentTurnDirection;
-
-        if (bikeController.CurrentSpeed > 0)
+        public void Handle(BikeController controller)
         {
-            transform.Translate(turnDirection * bikeController.turnDistance);
+            if (!bikeController)
+            {
+                bikeController = controller;
+            }
+
+            turnDirection.x = (float)bikeController.CurrentTurnDirection;
+
+            if (bikeController.CurrentSpeed > 0)
+            {
+                transform.Translate(turnDirection * bikeController.turnDistance);
+            }
         }
     }
 }

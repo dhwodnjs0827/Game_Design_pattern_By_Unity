@@ -1,44 +1,50 @@
 using System.Collections;
 using UnityEngine;
 
-/// <summary>
-/// 이벤트를 게시하는 클래스 예저
-/// </summary>
-public class CountdownTimer : MonoBehaviour
+namespace Practice
 {
-    public delegate void TimerStarted();
-    public static event TimerStarted OnTimerStarted;
-    public delegate void TimerEnded();
-    public static event TimerEnded OnTimerEnded;
-    [SerializeField] private float duration = 5.0f;
-
-    private void Start()
+    /// <summary>
+    /// 이벤트를 게시하는 클래스 예저
+    /// </summary>
+    public class CountdownTimer : MonoBehaviour
     {
-        StartCoroutine(StartCountdown());
-    }
+        public delegate void TimerStarted();
 
-    private IEnumerator StartCountdown()
-    {
-        if (OnTimerStarted != null)
+        public static event TimerStarted OnTimerStarted;
+
+        public delegate void TimerEnded();
+
+        public static event TimerEnded OnTimerEnded;
+        [SerializeField] private float duration = 5.0f;
+
+        private void Start()
         {
-            OnTimerStarted();
+            StartCoroutine(StartCountdown());
         }
 
-        while (duration > 0)
+        private IEnumerator StartCountdown()
         {
-            yield return new WaitForSeconds(1f);
-            duration--;
+            if (OnTimerStarted != null)
+            {
+                OnTimerStarted();
+            }
+
+            while (duration > 0)
+            {
+                yield return new WaitForSeconds(1f);
+                duration--;
+            }
+
+            if (OnTimerEnded != null)
+            {
+                OnTimerEnded();
+            }
         }
 
-        if (OnTimerEnded != null)
+        private void OnGUI()
         {
-            OnTimerEnded();
+            GUI.color = Color.blue;
+            GUI.Label(new Rect(125, 0, 100, 20), "COUNTDOWN" + duration);
         }
-    }
-
-    private void OnGUI()
-    {
-        GUI.color = Color.blue;
-        GUI.Label(new Rect(125, 0, 100, 20), "COUNTDOWN" + duration);
     }
 }
